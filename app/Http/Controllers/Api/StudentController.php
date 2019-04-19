@@ -84,7 +84,7 @@ class StudentController extends Controller
             unset($data['avatar']);
         }
         $student->update($data);
-        return response()->json(['code' => 200, 'message' => 'success']);
+        return response()->json(['code' => 200, 'message' => 'success'])->setStatusCode();
     }
 
     /**

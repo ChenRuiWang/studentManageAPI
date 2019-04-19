@@ -32,7 +32,7 @@ class PublicController extends Controller
         }
         // 创建token
         $token = static::getNonceStr();
-        Redis::SET("user:token:{$token}", $user->id);
+        Redis::SET("user:token:{$token}", $user->id, 'NX', 'EX', 60 * 60 * 24);
         return response()->json(['code' => 200, 'message' => 'success', 'data' => ['token' => $token]]);
     }
 

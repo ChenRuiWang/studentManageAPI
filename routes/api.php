@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 Route::namespace('Api')->group(function() {
     Route::post('/login', 'PublicController@login');
     Route::middleware('check')->group(function () {
-        Route::get('/my', 'UserController@detail');
+        Route::post('/my', 'UserController@detail');
         Route::post('/logout', 'PublicController@logout');
     });
     Route::middleware('check.auth')->group(function() {

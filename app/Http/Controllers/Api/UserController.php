@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         $user = Auth::get($request->header('Token'));
 
-        return $user;
+        return response()->json(['code' => 200, 'message' => 'success', 'data' => $user]);
     }
 
     public function user(Request $request)
